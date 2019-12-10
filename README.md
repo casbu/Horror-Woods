@@ -1,5 +1,7 @@
 # Phaser 3 TopDown RPG
-This is my first modernized JRPG style game, created with Phaser 3. This is still a WIP. I will be implementing many different game style techniques within the game itself, as I learn them.  i.e. computer games on the in-game computer, cutscenes, dialogue, etc
+This is my first modernized JRPG style game, created with Phaser 3. This is still a WIP. I will be implementing many different game style techniques within the game itself, as I learn them.  i.e. computer games on the in-game computer, cutscenes, dialogue, etc.
+
+Currently utilizing the Phaser 3 Webpack Project Template provided by photonstorm (https://github.com/photonstorm/phaser3-project-template)
 
 
 ## Phaser 3 Webpack Project Template
