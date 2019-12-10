@@ -3,36 +3,47 @@
 * NOTICES / ITEMS / IMPORTANT INFORMATION
 TODO things I still need to modify or add i.e. sounds, graphics, items
 
-Name your characters:
+Characters
 1 - Fin - PLAYER - POWER / Thrust
-    Cane
-    Shovel
-    Soldier Spear
-    
     HP, Fear
+        BASIC: 
+            cane - ATK
+            sneakers - DEF
+        INTERMEDIATE:
+            shovel - ATK
+            boots - DEF
+        ADVANCED: 
+            spear - ATK
+            iron boots - DEF
 
-    Sometimes you have to do all of the things.
-
+Sometimes you have to do all of the things.
 
 2 - Dexter - NEIGHBOR PSI / Slash
-    Wood Wand
-    Crafted Wooden Wand
-    Soul Staff 
-
     HP, Magic
-
-    The magic is inside of you.
+        BASIC: 
+            wooden stick - ATK
+            sunshades - DEF
+        INTERMEDIATE:
+            crafted wand - ATK
+            nightshades - DEF
+        ADVANCED: 
+            soul staff - ATK
+            invisibility cape - DEF
+The magic is inside of you.
 
 3 - Violet - FRIEND STEALTH / Bow
-    Black Bow - Arrow
-    Green Bow - Arrow
-    Yellow Bow - Arrow
-
     HP, Confidence
-
-    Believe in yourself.
+        BASIC: 
+            black bow - ATK
+            cloth gloves - DEF
+        INTERMEDIATE:
+            green bow - ATK
+            leather gloves - DEF
+        ADVANCED: 
+            yellow bow - ATK
+            satin gloves - DEF
+Believe in yourself.
     
-
 HP - Health
 Fear - Toggles ability to fight
 Magic - Abilities
@@ -42,57 +53,35 @@ TODO: create follower system, inventory system, game items, weapons, and charact
 KEY ITEMS: 
     flashlight
     town map
+    ATM Card
     shovel
     key
-    ATM Card
 HEALTH ITEMS: 
     granola bar 10HP
     sandwich 25HP
     TV Dinner 50HP
 BATTLE ITEMS:
     pixie dust (sleep)
-    vial of poison (HP Eater)
+    vial of poison (paralyze)
     itemX (mandatory to beat Boss)
-WEAPONS & ARMOR:
-    Fin 
-        cane - basic
-            sneakers
-        shovel - intermediate
-            boots
-        spear - advanced
-            iron boots
-    Dexter
-        wooden stick - basic
-            sunshades
-        crafted wand - intermediate
-            nightshades
-        soul staff - advanced
-            invisible cape
-    Violet
-        black bow - basic
-            cloth gloves
-        green bow - intermediate
-            leather gloves
-        yellow bow - advanced
-            satin gloves
-
+  
 ENEMIES:
     FORESTON
         mosquito
             HP 6
-            XP 135
+            XP 60
         snake 
             HP 13
-            XP 200
+            XP 130
         bat 
             HP 28
-            XP 350
-        cloaked figure - AVOID AT ALL COSTS
+            XP 280
+        cloaked figure - AVOID AT ALL COSTS (boundaries - cemetary)
             HP 1000
             XP 10000
 
     CAVE
-        zombie bat
+        bat
             HP 50
             XP 500
         mole
@@ -101,6 +90,30 @@ ENEMIES:
         BOSS: cave creature
             HP 150
             XP 1500
+
+NPCs
+    FORESTON
+        5 Townies
+            Little Girl 
+                - If you get hurt, eat some granola bars from the gas station! It's nothing to brag about...but it's all we have out here! 
+            Brotha' Tim
+                - I heard about these things called TV Dinners! It's supposed to max out your HP! Must be a city thing...we only get those cruddy snacks from the gas station. I heard there's a guy that's stocking piling TV Dinners back in the woods. Hey hey hey, if you find him, tell him Brotha' Tim sent you, maybe he'll be cool & sell you one. 
+            Old Man
+                - Hey you! What are you doing out here?! There's some strange things going on in this town...might want to visit Wear&Tear for some supplies
+            Woman
+                - Did you get hurt? We don't have a hospital all the way out here but theres a dude in a blue suit around here that practices medicine! ...I wouldn't let him operate on you but he can bandage you up until you can reach a hospital!
+            Little Dude
+                - I may be small but I AM MIGHTY! The Candyman gave me a nice throwing rock! Can you believe it? I can't wait to blast all those baddies outta here! I bet he'd give you something really nice since you're old...er!
+
+        Vendors ( 2 shops and 2 street vendors)
+            Gas Station - Goods
+            Wear & Tear - Armory
+            
+            The Candyman - Weapons
+            The Medicineman - Street Hospital
+
+
+
     
 
 ! PRELUDE - Character travels from town to the middle of the forest (show backseat with scrolling town->tunnel>forest-house). Message from phone. "THIS IS A TEST of the National Wireless Emergency Alert System. No action is needed." 
