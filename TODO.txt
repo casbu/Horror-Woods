@@ -38,7 +38,70 @@ Fear - Toggles ability to fight
 Magic - Abilities
 Confidence - Toggles Precision
 
+TODO: create follower system, inventory system, game items, weapons, and character/enemy stats, money implementation
+KEY ITEMS: 
+    flashlight
+    town map
+    shovel
+    key
+    ATM Card
+HEALTH ITEMS: 
+    granola bar 10HP
+    sandwich 25HP
+    TV Dinner 50HP
+BATTLE ITEMS:
+    pixie dust (sleep)
+    vial of poison (HP Eater)
+    itemX (mandatory to beat Boss)
+WEAPONS & ARMOR:
+    Fin 
+        cane - basic
+            sneakers
+        shovel - intermediate
+            boots
+        spear - advanced
+            iron boots
+    Dexter
+        wooden stick - basic
+            sunshades
+        crafted wand - intermediate
+            nightshades
+        soul staff - advanced
+            invisible cape
+    Violet
+        black bow - basic
+            cloth gloves
+        green bow - intermediate
+            leather gloves
+        yellow bow - advanced
+            satin gloves
 
+ENEMIES:
+    FORESTON
+        mosquito
+            HP 6
+            XP 135
+        snake 
+            HP 13
+            XP 200
+        bat 
+            HP 28
+            XP 350
+        cloaked figure - AVOID AT ALL COSTS
+            HP 1000
+            XP 10000
+
+    CAVE
+        zombie bat
+            HP 50
+            XP 500
+        mole
+            HP 75
+            XP 750
+        BOSS: cave creature
+            HP 150
+            XP 1500
+    
 
 ! PRELUDE - Character travels from town to the middle of the forest (show backseat with scrolling town->tunnel>forest-house). Message from phone. "THIS IS A TEST of the National Wireless Emergency Alert System. No action is needed." 
 
@@ -90,7 +153,11 @@ AND EXIT THE HOUSE
 - enter town center in FORESTON
 
 ? Scene 3 - FORESTON Town center
-
+- create NPCs
+- Townie NPC interaction implementation
+    - hints about game concepts & mechanics, road block up head, the mysterious cave, monsters, and vague details on a boss that can help AND hinder you during battle (you won't know which is which until you try them out in battle)
+- Tree INFORMATION & Dialogue
+- create shops - Goods/Armory/Magic/Hospital
 
 
 
