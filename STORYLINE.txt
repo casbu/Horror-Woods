@@ -1,0 +1,100 @@
+! IMPORTANT CUTSCENES
+? GAME SCENES
+* NOTICES / ITEMS / IMPORTANT INFORMATION
+TODO things I still need to modify or add i.e. sounds, graphics, items
+
+Name your characters:
+1 - Fin - PLAYER - POWER / Thrust
+    Cane
+    Shovel
+    Soldier Spear
+    
+    HP, Fear
+
+    Sometimes you have to do all of the things.
+
+
+2 - Dexter - NEIGHBOR PSI / Slash
+    Wood Wand
+    Crafted Wooden Wand
+    Soul Staff 
+
+    HP, Magic
+
+    The magic is inside of you.
+
+3 - Violet - FRIEND STEALTH / Bow
+    Black Bow - Arrow
+    Green Bow - Arrow
+    Yellow Bow - Arrow
+
+    HP, Confidence
+
+    Believe in yourself.
+    
+
+HP - Health
+Fear - Toggles ability to fight
+Magic - Abilities
+Confidence - Toggles Precision
+
+
+
+! PRELUDE - Character travels from town to the middle of the forest (show backseat with scrolling town->tunnel>forest-house). Message from phone. "THIS IS A TEST of the National Wireless Emergency Alert System. No action is needed." 
+
+
+? SCENE 1 - Home
+
+Character starts in room. Computer screen turns on. Game Setup Screen.
+Start playing mini game, midway you receive 
+
+* New Message! " Fin!!!! I can't believe you moved away! Things are getting crazy here, my parents are thinking about packing up too. They bought all this supplies...canned food and water EVERYWHERE i cant even get into my room. Had to come in through the back. Anyway...I hope you come visit...if we're still here. I'm kind of scared...ha. Oh yeah! I got you a present to remind you of home for your anxiety and stuff. Your mom has it. Anyhoo, miss you! Hope to see you soon! - xo Best Friend(Violet)"
+
+* New Message! "Duuuude. I heard you moved out here. Me too! I'm right down the street! We can be neighbors again! We should meet up tonight! Bring a flashlight or you'll never find the house. Isn't it fun living in the middle of nowhere? LOL See ya. - Neighbor (Dexter)
+
+Continue playing game and finish level 1.
+
+* New Message! "Presidential Alert. THIS IS NOT A DRILL. This is a message from the National Wireless Emergency Alert System. Stay in your homes. Lock your doors. Be patient. Turn to channel 3 on your televisions for a presidential message. We will be sending services to your neighborhood shortly."
+
+! CUT SCENE -- POWER SHUTS DOWN IN THE HOUSE - span through little town showing lights cutting off and "subtle town power static" turning off, amplifying forest sounds i.e. crickets, birds, etc.
+
+* New Message! "Dude. It's Dexter. Did you get that message? Wtf was that about. What should we do?"
+   1: Let's just stay at home and wait. I don't want to take any chances.
+        2: Hmm..okay. I'm going to look around outside. See whats up. You stay home you BIG BABY jk
+            1: Grr fine...I'll meet you halfway. Be there in a sec. 
+                2: Don't forget the flashlight!
+                2: And maybe some snacks...im hungry.
+                    1: You're always hungry...
+
+    1: It's got to be a prank or something. Someone probably hacked the system again. Remember when everyone freaked out over that volcano and it turned out to be a dude that pushed the wrong button? 
+        2: Hahaha yeah I remember that. Alright. Well ill text you if I find anything. I'm going to go look around. You should come with! It'll be an adventure! I'm heading over right now, meet me halfway.
+            1: Ugghhh damn you Dexter. Fine. See you in a bit.
+                2: Don't forget the flashlight!
+                2: And maybe some snacks...im hungry.
+                    1: Dude it's midnight. 
+                        2: What's your point?
+
+
+TODO GATHER SUPPLIES 
+    - flashlight
+    - powerups -> granola bar(5 HP), first aid (Heal)
+    - friends photo - gift from violet by the door (Lowers Fear)
+AND EXIT THE HOUSE
+
+? Scene 2 - FORESTON
+- meet Dexter, add to Party
+- avoid baddies & find shed
+- obtain grandpa's cane(Fin) and a large wooden stick(Dexter)
+- fight baddies and obtain power ups
+- visit cemetary -> "a sense of dread passes through you"
+- enter town center in FORESTON
+
+? Scene 3 - FORESTON Town center
+
+
+
+
+
+
+
+
