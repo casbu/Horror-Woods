@@ -36,7 +36,7 @@ export default class GameScene extends Phaser.Scene {
         // this.events.on('wake', this.wake, this);
 
         //! DEBUG
-        this.debugCollisions();        
+        // this.debugCollisions();        
     }
     //! ------------------------
     //! ----- UPDATE -----
@@ -83,8 +83,13 @@ export default class GameScene extends Phaser.Scene {
             this.player.anims.stop();
         }
 
-        // neighbor animation
+        // play neighbor animation
         this.neighbor.anims.play('pace', true);
+
+        //play enemies animations
+        // issues - find fix
+        //TODO this.spawns.getChildren().callAll(Phaser.Sprite.play, null, ['fly', 'slither', 'float']);
+        
     }
 
     //! ------------------------
@@ -170,43 +175,31 @@ export default class GameScene extends Phaser.Scene {
         });
 
         // enemy animations
-        //mosquito
-        // this.anims.create({
-        //     key: 'fly',
-        //     frames: this.anims.generateFrameNumbers('mosquito'),
-        //     frameRate: 10,
-        //     repeat: -1
-        // });
-        // this.anims.create({
-        //     key: 'battle_fly',
-        //     frames: this.anims.generateFrameNumbers('mosquito_flying', { frames: [0,1]}),
-        //     frameRate: 10,
-        //     repeat: -1
-        // });
-        // this.anims.create({
-        //     key: 'battle_attack',
-        //     frames: this.anims.generateFrameNumbers('mosquito_attack', { frames: [0,1,2]}),
-        //     frameRate: 1,
-        //     repeat: 1
-        // });
+        //--mosquito
+        this.anims.create({
+            key: 'fly',
+            frames: this.anims.generateFrameNumbers('mosquito', { frames: [0,1,2]}),
+            frameRate: 10,
+            repeat: -1
+        });
+        
+        //--bat - already created in preload scene
 
-        //bat - already created in preload scene
+        //--snake
+        this.anims.create({
+            key: 'slither',
+            frames: this.anims.generateFrameNumbers('snake', { frames: [6,7,8]}),
+            frameRate: 10,
+            repeat: -1
+        });
 
-        //snake
-        // this.anims.create({
-        //     key: 'slither',
-        //     frames: this.anims.generateFrameNumbers('snake');
-        //     frameRate: 10,
-        //     repeat: -1
-        // });
-
-        // //cloaked figure
-        // this.anims.create({
-        //     key: 'float',
-        //     frames: this.anims.generateFrameNumbers('cloakedfigure', { frames: [0,1,2,3]}),
-        //     frameRate: 10,
-        //     repeat: -1
-        // });
+        //--cloaked figure
+        this.anims.create({
+            key: 'float',
+            frames: this.anims.generateFrameNumbers('cloakedfigure', { frames: [0,1,2,3]}),
+            frameRate: 10,
+            repeat: -1
+        });
         
     }
 
@@ -247,6 +240,43 @@ export default class GameScene extends Phaser.Scene {
         }
         this.physics.add.collider(this.spawns, this.worldLayer);
         this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, false, this);
+
+        // move enemies
+        this.timedEvent = this.time.addEvent({
+            delay: 3000,
+            callback: this.moveEnemies,
+            callbackScope: this,
+            loop: true
+        });
+    }
+
+    moveEnemies(){
+        this.spawns.getChildren().forEach((enemy) => {
+            const randNumber = Math.floor((Math.random() * 4) + 1);
+
+            switch(randNumber){
+                case 1:
+                    enemy.body.setVelocityX(50);
+                    break;
+                case 2:
+                    enemy.body.setVelocityX(-50);
+                    break;
+                case 3:
+                    enemy.body.setVelocityY(50);
+                    break;
+                case 4:
+                    enemy.body.setVelocityY(50);
+                    break;
+                default:
+                    enemy.body.setVelocityX(50);
+                    break;
+            }
+        });
+
+        setTimeout(() => {
+            this.spawns.setVelocityX(0);
+            this.spawns.setVelocityY(0);
+        }, 500);
     }
 
     getEnemySprite(){
