@@ -70,6 +70,7 @@ export default class PreloaderScene extends Phaser.Scene {
         //ui
         this.load.image('title_bg', '/assets/ui/title_bg.png');
         this.load.image('title', '/assets/ui/title0.png');
+        this.load.image('options_bg', '/assets/ui/options_bg.png');
         this.load.image('play_button', '/assets/ui/play_button.png');
         this.load.image('options_button', '/assets/ui/options_button.png');
         this.load.image('credits_button', '/assets/ui/credits_button.png');
