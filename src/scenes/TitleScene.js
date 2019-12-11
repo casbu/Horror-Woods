@@ -71,6 +71,7 @@ export default class TitleScene extends Phaser.Scene {
             hoverSprite.setVisible(false);
         })
         optionsButton.on("pointerup", () => {
+            this.scene.sleep('Title');
             this.scene.launch('Options');
         })
 
