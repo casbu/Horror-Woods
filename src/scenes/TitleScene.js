@@ -31,7 +31,7 @@ export default class TitleScene extends Phaser.Scene {
         // create audio, display pauseonblur
 
         this.sound.play("title_music", {
-            loop: true,
+            loop: true
         });
 
         // create animation
