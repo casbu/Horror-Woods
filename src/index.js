@@ -8,9 +8,6 @@ import CreditsScene from "./scenes/CreditsScene";
 import GameScene from "./scenes/GameScene";
 import { BattleScene, UIScene } from "./scenes/BattleScene";
 
-
-
-
 class Game extends Phaser.Game {
   constructor () {
     super(config);
@@ -29,6 +26,8 @@ class Game extends Phaser.Game {
 window.onload = function () {
   window.game = new Game(config);
 }
+
+
 
 
 

@@ -67,6 +67,16 @@ export default class PreloaderScene extends Phaser.Scene {
         this.load.audio('title_music', '/assets/sounds/Natural_Snow_Buildings_-_04_-_Youll_Become_What_You_Fear_the_Most.mp3');
         this.load.audio('credits_music', '/assets/sounds/Natural_Snow_Buildings_-_10_-_Sandman_Traps.mp3');
 
+        //bitmap font
+        //black
+        this.load.bitmapFont('font_base', '/assets/fonts/Lunchtime-Doubly-So.png', '/assets/fonts/Lunchtime-Doubly-So.xml');
+        this.load.bitmapFont('font_dialogue', '/assets/fonts/petit.png', '/assets/fonts/petit.xml');
+        this.load.bitmapFont('font_handwritten', '/assets/fonts/wc-mano-negra-bta.png', '/assets/fonts/wc-mano-negra-bta.xml');
+        //white
+        this.load.bitmapFont('font_base_white', '/assets/fonts/white/Lunchtime-Doubly-So-white.png', '/assets/fonts/Lunchtime-Doubly-So.xml');
+        this.load.bitmapFont('font_dialogue_white', '/assets/fonts/white/petit-white.png', '/assets/fonts/petit.xml');
+        this.load.bitmapFont('font_handwritten_white', '/assets/fonts/white/wc-mano-negra-bta-white.png', '/assets/fonts/wc-mano-negra-bta.xml');
+
         //ui
         this.load.image('title_bg', '/assets/ui/title_bg.png');
         this.load.image('title', '/assets/ui/title0.png');
@@ -74,6 +84,7 @@ export default class PreloaderScene extends Phaser.Scene {
         this.load.image('play_button', '/assets/ui/play_button.png');
         this.load.image('options_button', '/assets/ui/options_button.png');
         this.load.image('credits_button', '/assets/ui/credits_button.png');
+        this.load.image('credits_overlay', '/assets/ui/credits_overlay.png');
         
         // parallax
         this.load.image('demonwoods_bg', '/assets/parallax/parallax-demon-woods-bg.png');

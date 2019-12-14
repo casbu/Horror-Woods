@@ -1,11 +1,39 @@
 ! IMPORTANT CUTSCENES
 ? GAME SCENES
 * NOTICES / ITEMS / IMPORTANT INFORMATION
-TODO things I still need to modify or add i.e. sounds, graphics, items
+TODO things I still need to modify or add
 
 -----------------
 ----- SETUP -----
 -----------------
+
+--SYSTEMS
+TODO UI System
+    name
+    stats
+    weapon
+    armor
+    backpack
+
+TODO inventory system
+TODO weapons
+TODO items
+TODO money implementation
+TODO follower system
+TODO character/enemy stats
+TODO dialogue
+
+--GAME MECHANICS
+TODO spawn random crap items to garbage cans
+TODO create enemies in Tiled
+TODO enemies drop items
+TODO specific enemy spawning in specific zones
+TODO enemies follow player
+TODO fix battle scene
+
+---------------------------
+----- CHARACTERS INFO -----
+---------------------------
 
 Characters
 1 - Fin - PLAYER - POWER / Thrust
@@ -34,7 +62,7 @@ Fear - Toggles ability to fight
 Magic - Abilities
 Confidence - Toggles Precision
 
-TODO: create follower system, inventory system, game items, weapons, and character/enemy stats, money implementation
+
 KEY ITEMS: 
     friends photo
     flashlight
