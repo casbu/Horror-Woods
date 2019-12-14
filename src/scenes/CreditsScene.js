@@ -6,7 +6,6 @@ export default class CreditsScene extends Phaser.Scene {
     }
     create() {
         //background music
-        //! Possibly change to Campfire Fight Track 02 "Campfire Fight". See how game plays out. Maybe have two possible endings.
         var credit_music = this.sound.play("credits_music", {
             loop: false,
             delay: 1
