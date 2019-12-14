@@ -25,11 +25,16 @@ TODO dialogue
 
 --GAME MECHANICS
 TODO spawn random crap items to garbage cans
-TODO add enemies in Tiled
 TODO enemies drop items
 TODO specific enemy spawning in specific zones
 TODO enemies follow player
 TODO fix battle scene or implement world battle mechanics
+
+--TILED
+TODO add enemies in Tiled
+TODO change map to new one created
+TODO adjust zones
+TODO fix collision layers
 
 --MUSIC
 TODO Credits - Possibly change to Campfire Fight Track 02. See how game plays out. Maybe have two possible endings.
