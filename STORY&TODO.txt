@@ -25,7 +25,7 @@ TODO dialogue
 
 --GAME MECHANICS
 TODO spawn random crap items to garbage cans
-TODO create enemies in Tiled
+TODO add enemies in Tiled
 TODO enemies drop items
 TODO specific enemy spawning in specific zones
 TODO enemies follow player
