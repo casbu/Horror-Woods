@@ -29,7 +29,13 @@ TODO create enemies in Tiled
 TODO enemies drop items
 TODO specific enemy spawning in specific zones
 TODO enemies follow player
-TODO fix battle scene
+TODO fix battle scene or implement world battle mechanics
+
+--MUSIC
+TODO Credits - Possibly change to Campfire Fight Track 02. See how game plays out. Maybe have two possible endings.
+TODO sfx
+TODO towns, homes
+
 
 ---------------------------
 ----- CHARACTERS INFO -----

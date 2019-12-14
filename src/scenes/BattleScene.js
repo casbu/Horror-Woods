@@ -7,8 +7,6 @@ import 'phaser';
 export class BattleScene extends Phaser.Scene {
     constructor(){
         super('Battle');
-
-        
     }
 
     create(){
@@ -20,8 +18,6 @@ export class BattleScene extends Phaser.Scene {
 
         // on wake event we call startBattle too
         this.sys.events.on('wake', this.startBattle, this);
-
-
     }
     //! -- FUNCTIONS
     startBattle(){
@@ -51,8 +47,6 @@ export class BattleScene extends Phaser.Scene {
         this.enemies = [ mosquito, snake, bat, cloakedFigure ];
         // array with both parties, who will attack
         this.units = this.heroes.concat(this.enemies);
-
-        
 
         //run UI scene at the same time
         this.scene.run('UI');
@@ -186,7 +180,6 @@ constructor(scene, x, y, texture, frame, type, hp, damage) {
 }
 }
 
-
 //!--------------------------------------------------------
 //!---------------------- UI SCENE ------------------------
 //!--------------------------------------------------------
@@ -194,8 +187,6 @@ constructor(scene, x, y, texture, frame, type, hp, damage) {
 export class UIScene extends Phaser.Scene {
     constructor(){
         super({ key: 'UI'});
-
-        
     }
     create(){
         // draw some background for the menu
