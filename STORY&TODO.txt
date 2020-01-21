@@ -32,9 +32,9 @@ TODO fix battle scene or implement world battle mechanics
 
 --TILED
 TODO add enemies in Tiled
-TODO change map to new one created
-TODO adjust zones
-TODO fix collision layers
+TODO add viewport zones
+TODO  might need to change all objects in world layer to an objects layer and have world layer be the walls and rooms etc that collide with player. then make seperate collisions for decoration (trees, stones, blah), then items, enemies, zones, doors, etc
+TODO delete boundaries layer
 
 --MUSIC
 TODO Credits - Possibly change to Campfire Fight Track 02. See how game plays out. Maybe have two possible endings.
@@ -75,22 +75,30 @@ Confidence - Toggles Precision
 
 
 KEY ITEMS: 
-    friends photo
+    friends photo - adds 5 to fear meter, cooldown time
     flashlight
     town map
-    ATM Card
+    Coinometer App
     shovel
     key
+    
 HEALTH ITEMS: 
-    granola bar 10HP
-    questionable sandwich 25HP (1/5 Paralysis)
-    TV Dinner MaxHP
+    $3 Granola Bar 10HP
+    $5 Questionable Sandwich 25HP (1/5 Paralysis)
+    $10 Mighty Sub 25HP 
+    $15 TV Dinner 50HP
+    $20  ~  MaxHP
+
 BATTLE ITEMS:
-    pixie dust (sleep)
+    pixie dust (sleep) - 2 turns
     vial of poison (paralyze)
+
+    bomb (hits entire party)
+
     itemX (mandatory to beat Boss)
   
 ENEMIES:
+    DROPS: candy 1/5
     FORESTON
         mosquito
             HP 6
@@ -98,33 +106,36 @@ ENEMIES:
         snake 
             HP 13
             XP 130
-        bat 
-            HP 28
-            XP 280
+
         cloaked figure - AVOID AT ALL COSTS (boundaries - cemetary)
             HP 1000
             XP 10000
 
     CAVE
-        bat
+        bat 
+            HP 28
+            XP 280
+        super bat
             HP 50
             XP 500
         mole
             HP 75
             XP 750
         BOSS: cave creature
-            HP 150
+            HP 500
             XP 1500
 
 NPCs
     FORESTON
-        5 Townies
+        6 Townies
             Little Girl 
                 - If you get hurt, eat some granola bars from the gas station! It's nothing to brag about...but it's all we have out here! 
             Brotha' Tim
-                - I heard about these things called TV Dinners! It's supposed to max out your HP! Must be a city thing...we only get those cruddy snacks from the gas station. There's a guy that's stocking piling TV Dinners back in the woods. Hey hey hey, if you find him, tell him Brotha' Tim sent you, maybe he'll be cool & sell you one. 
+                - I heard about these things called TV Dinners! It's supposed to max out your HP! Must be a city thing...we only get those cruddy granola bars from the gas station. There's a guy that's stocking piling TV Dinners back in the woods. Hey hey hey, if you find him, tell him Brotha' Tim sent you, maybe he'll be cool & sell you one. 
             Old Man
                 - WHAT ARE THOSE?!? ...might want to visit Wear&Tear for some new gear.
+            Old Lady
+                - I think there's a man down by the river living out of his van. Gives me the heebie geebies, if you ask me!
             Woman
                 - We don't have a hospital all the way out here but theres a dude in a blue suit that practices medicine! Err...I wouldn't let him operate on you but he can bandage you up until you can reach a hospital!
             Little Dude
@@ -134,8 +145,10 @@ NPCs
             Gas Station - Goods
             Wear & Tear - Armory
             
-            The Candyman - Weapons
+            The Candyman - Weapons - only accepts candy 
+                TODO LOCATION: Van by the River 
             The Medicineman - Street Hospital
+                TODO LOCATION: idk yet
 
 
 

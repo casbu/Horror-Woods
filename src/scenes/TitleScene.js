@@ -23,16 +23,9 @@ export default class TitleScene extends Phaser.Scene {
         let optionsButton = this.add.image(width / 2, height / 2 + 150, "options_button").setDepth(1);
         let creditsButton = this.add.image(width / 2 + 150, height / 2 + 150, "credits_button").setDepth(1);
 
-
         // create sprites
         let hoverSprite = this.add.sprite(100,100,"bat", 0);
         hoverSprite.setVisible(false).setDepth(2);
-
-        // create audio, display pauseonblur
-
-        this.sound.play("title_music", {
-            loop: true
-        });
 
         // create animation
         this.anims.create({
@@ -56,7 +49,6 @@ export default class TitleScene extends Phaser.Scene {
         })
         playButton.on("pointerup", () => {
             this.sound.stopAll("title_music");
-            //this.scene.launch('HUD); //launch HUD
             this.scene.start('Game');
         })
 
@@ -71,8 +63,7 @@ export default class TitleScene extends Phaser.Scene {
             hoverSprite.setVisible(false);
         })
         optionsButton.on("pointerup", () => {
-            this.scene.sleep('Title');
-            this.scene.launch('Options');
+            this.scene.start('Options');
         })
 
         creditsButton.setInteractive();
@@ -86,17 +77,21 @@ export default class TitleScene extends Phaser.Scene {
             hoverSprite.setVisible(false);
         })
         creditsButton.on("pointerup", () => {
-            this.sound.stopAll("title_music");
             this.scene.start('Credits');
         })
-
 
         // setting new camera for non pixelArt
         this.extracam = this.cameras.add();
         this.extracam.ignore(this.titlebg);
 
-        
-        
+        //background music
+        this.model = this.sys.game.globals.model;
+        if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {
+            this.bgMusic = this.sound.add('title_music', { volume: 0.5, loop: true });
+            this.bgMusic.play();
+            this.model.bgMusicPlaying = true;
+            this.sys.game.globals.bgMusic = this.bgMusic;
+        }
     }
 
     //! ------------------------

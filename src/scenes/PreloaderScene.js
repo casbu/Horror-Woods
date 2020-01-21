@@ -85,6 +85,8 @@ export default class PreloaderScene extends Phaser.Scene {
         this.load.image('options_button', '/assets/ui/options_button.png');
         this.load.image('credits_button', '/assets/ui/credits_button.png');
         this.load.image('credits_overlay', '/assets/ui/credits_overlay.png');
+        this.load.image('box', '/assets/ui/box.png');
+        this.load.image('checked_box', '/assets/ui/checked_box.png');
         
         // parallax
         this.load.image('demonwoods_bg', '/assets/parallax/parallax-demon-woods-bg.png');
@@ -93,27 +95,92 @@ export default class PreloaderScene extends Phaser.Scene {
         this.load.image('demonwoods_closetrees', '/assets/parallax/parallax-demon-woods-close-trees.png');
 
         //tilemap
-        this.load.image('tiles', '/assets/tiles/main_tiles.png');
-        this.load.tilemapTiledJSON('forest_home', '/assets/map/forest.json');
+        this.load.image('tiles', '/assets/tiles/tiles.png');
+        this.load.tilemapTiledJSON('foreston', '/assets/map/foreston.json');
 
         //sprites
-        this.load.spritesheet('player', '/assets/sprites/Fin.png', {frameWidth: 64, frameHeight: 64});
+        this.load.spritesheet({
+            key: 'player', 
+            url: '/assets/sprites/Fin.png', 
+            frameConfig: {frameWidth: 64, frameHeight: 64, margin: 0, spacing: 0}
+        });
         this.load.spritesheet('neighbor', '/assets/sprites/dexter.png', {frameWidth: 64, frameHeight: 64});
         this.load.spritesheet('friend', '/assets/sprites/violet.png', {frameWidth: 64, frameHeight: 64});
 
         //enemies
         this.load.spritesheet('bat', '/assets/sprites/enemies/bat.png', {frameWidth: 32, frameHeight: 32});
-        this.load.spritesheet('mosquito', '/assets/sprites/enemies/Mosquito/$Mosquito.png', {frameWidth: 32, frameHeight: 32});
+        this.load.spritesheet('mosquito', '/assets/sprites/enemies/Mosquito.png', {frameWidth: 32, frameHeight: 32});
         this.load.spritesheet('snake', '/assets/sprites/enemies/snake.png', {frameWidth: 32, frameHeight: 32});
         this.load.spritesheet('cloakedfigure', '/assets/sprites/enemies/CloakedFigure.png', {frameWidth: 96, frameHeight: 94});
     }
 
     create () {
+        //! ANIMATIONS
+        //player
+        //--player animation
+        // this.anims.create({
+        //     key: 'stand-up',
+        //     frames: this.anims.generateFrameNumbers('player', { start: 0, end: 0 }),
+        //     frameRate: 15,
+        //     repeat: 1
+        // });
+        // this.anims.create({
+        //     key: 'stand-left',
+        //     frames: this.anims.generateFrameNumbers('player', { start: 9, end: 9 }),
+        //     frameRate: 15,
+        //     repeat: 1
+        // });
+        // this.anims.create({
+        //     key: 'stand-down',
+        //     frames: this.anims.generateFrameNumbers('player', { start: 18, end: 18 }),
+        //     frameRate: 15,
+        //     repeat: 1
+        // });
+        // this.anims.create({
+        //     key: 'stand-right',
+        //     frames: this.anims.generateFrameNumbers('player', { start: 27, end: 27 }),
+        //     frameRate: 15,
+        //     repeat: 1
+        // });
+        this.anims.create({
+            key: 'walk-up',
+            frames: this.anims.generateFrameNumbers('player', { start: 0, end: 8 }),
+            frameRate: 15,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'walk-left',
+            frames: this.anims.generateFrameNumbers('player', { start: 9, end:17 }),
+            frameRate: 15,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'walk-down',
+            frames: this.anims.generateFrameNumbers('player', { start: 18, end: 26 }),
+            frameRate: 15,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'walk-right',
+            frames: this.anims.generateFrameNumbers('player', { start: 27, end: 35 }),
+            frameRate: 15,
+            repeat: -1
+        });
+        
+        //--neighbor animation
+        this.anims.create({
+            key: 'pace',
+            frames: this.anims.generateFrameNumbers('neighbor', { frames: [9,18,27]}),
+            frameRate: 0.5,
+            delay: 5000,
+            repeat: -1
+        });
+
         this.events.on('startMenu', this.handler, this);
         this.events.emit('startMenu');
     }
     
     handler(){
-        this.scene.launch('Title');
+        this.scene.start('Title');
     }
 };
