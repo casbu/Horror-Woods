@@ -1,3 +1,5 @@
+**Deprecated due to Phaser and security updates. Will update soon.**
+
 # Phaser 3 TopDown RPG
 This is my first modernized JRPG style game, created with Phaser 3. I will be implementing many different game style techniques within the game itself, as I learn them.  i.e. in-game minigames, cutscene animations, dialogue, Tiled, etc.
 
