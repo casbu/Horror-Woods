@@ -1,19 +1,25 @@
+import Phaser from "phaser";
+import Entity from "../sprites/Entity"
 
-export default class Neighbor extends Phaser.GameObjects.Sprite {
+export default class Neighbor extends Entity {
 
     constructor(config) {
-        super(config.scene, config.x, config.y, 'neighbor');
-        config.scene.add.existing(this);
-        config.scene.physics.world.enable(this);
+        super(config);
         
-
-        this.body.setCollideWorldBounds(true);
-        this.body.setSize(31,45).setOffset(15,17);
+        this.body.setCollideWorldBounds(true).setSize(32,45).setOffset(15,17);
+        this.body.onWorldBounds = true;
         this.body.setImmovable(true);
-        // this.alive = true;
-        // this.hurt = false;
         
+        //neighbor animation
+        const anims = config.scene.anims
 
+        anims.create({
+            key: 'pace',
+            frames: anims.generateFrameNumbers('neighbor', { frames: [9,18,27]}),
+            frameRate: 0.5,
+            delay: 5000,
+            repeat: -1
+        });
     }
 
 

@@ -49,7 +49,7 @@ export default class TitleScene extends Phaser.Scene {
         })
         playButton.on("pointerup", () => {
             this.sound.stopAll("title_music");
-            this.scene.start('Game');
+            this.scene.start('Foreston');
         })
 
         optionsButton.setInteractive();
