@@ -59,7 +59,7 @@ export default class OptionsScene extends Phaser.Scene {
         this.musicText = this.add.bitmapText(350, 290, 'font_base_white', 'Music Enabled', 16);
 
         this.soundButton = this.add.image(300, 350, 'checked_box').setScale(0.5);
-        this.soundText = this.add.bitmapText(350, 340, 'font_base_white', 'Sound Enabled', 16);
+        this.soundText = this.add.bitmapText(350, 340, 'font_base_white', 'SFX Enabled', 16);
 
         this.musicButton.setInteractive();
         this.soundButton.setInteractive();

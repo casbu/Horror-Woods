@@ -112,75 +112,17 @@ export default class PreloaderScene extends Phaser.Scene {
         this.load.spritesheet('mosquito', '/assets/sprites/enemies/Mosquito.png', {frameWidth: 32, frameHeight: 32});
         this.load.spritesheet('snake', '/assets/sprites/enemies/snake.png', {frameWidth: 32, frameHeight: 32});
         this.load.spritesheet('cloakedfigure', '/assets/sprites/enemies/CloakedFigure.png', {frameWidth: 96, frameHeight: 94});
-    }
+
+    } //end preload
 
     create () {
-        //! ANIMATIONS
-        //player
-        //--player animation
-        // this.anims.create({
-        //     key: 'stand-up',
-        //     frames: this.anims.generateFrameNumbers('player', { start: 0, end: 0 }),
-        //     frameRate: 15,
-        //     repeat: 1
-        // });
-        // this.anims.create({
-        //     key: 'stand-left',
-        //     frames: this.anims.generateFrameNumbers('player', { start: 9, end: 9 }),
-        //     frameRate: 15,
-        //     repeat: 1
-        // });
-        // this.anims.create({
-        //     key: 'stand-down',
-        //     frames: this.anims.generateFrameNumbers('player', { start: 18, end: 18 }),
-        //     frameRate: 15,
-        //     repeat: 1
-        // });
-        // this.anims.create({
-        //     key: 'stand-right',
-        //     frames: this.anims.generateFrameNumbers('player', { start: 27, end: 27 }),
-        //     frameRate: 15,
-        //     repeat: 1
-        // });
-        this.anims.create({
-            key: 'walk-up',
-            frames: this.anims.generateFrameNumbers('player', { start: 0, end: 8 }),
-            frameRate: 15,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'walk-left',
-            frames: this.anims.generateFrameNumbers('player', { start: 9, end:17 }),
-            frameRate: 15,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'walk-down',
-            frames: this.anims.generateFrameNumbers('player', { start: 18, end: 26 }),
-            frameRate: 15,
-            repeat: -1
-        });
-        this.anims.create({
-            key: 'walk-right',
-            frames: this.anims.generateFrameNumbers('player', { start: 27, end: 35 }),
-            frameRate: 15,
-            repeat: -1
-        });
-        
-        //--neighbor animation
-        this.anims.create({
-            key: 'pace',
-            frames: this.anims.generateFrameNumbers('neighbor', { frames: [9,18,27]}),
-            frameRate: 0.5,
-            delay: 5000,
-            repeat: -1
-        });
 
         this.events.on('startMenu', this.handler, this);
         this.events.emit('startMenu');
     }
     
     handler(){
+        // this.scene.start('Title');
         this.scene.start('Title');
     }
 };

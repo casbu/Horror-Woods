@@ -10,5 +10,15 @@ export default {
       gravity: { y: 0 },
       debug: true
     }
+  },
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+    parent: "horror-woods"
   }
+//   plugins: {
+//     scene: [
+//       { key: 'Dialog', plugin: Dialog, mapping: 'Dialog' }
+//     ]
+//   }
 };

@@ -1,0 +1,7 @@
+{
+    "_description": "The script object contains a list of dialog responses from game characters."
+    "player": {
+        "forestonsign": "Welcome to Foreston!"
+        "mysticaltree": "This tree is awfully mysterious..."
+    }
+}

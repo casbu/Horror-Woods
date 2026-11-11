@@ -4,50 +4,60 @@ import Neighbor from "../sprites/Neighbor";
 
 export default class GameScene extends Phaser.Scene {
 
-    constructor() {
-        super('Game');
+    constructor(sceneName) {
+        super({key: sceneName});
+
+        
     }
-    
+
+    init(data){}
+
+    // preload() {
+        //TODO load scriptdata
+        // TODO load health meter images
+        // TODO preload animsManager -- still need to create
+    // }
     
     //! ------------------------
     //! ----- CREATE -----
     //! ------------------------
-    create() {
-        //TODO load music based on registry value, loop, and play
+    create(settings) {
+
+        // TODO load music based on registry value, loop, and play
 
         //-- CREATE MAP --
         // tilemap & tileset
-        this.map = this.make.tilemap({ key: 'foreston' });
-        this.tiles = this.map.addTilesetImage('tiles');
+        const map = this.make.tilemap({ key: settings.mapKey });
+        const tiles = map.addTilesetImage(settings.tiledKey, settings.tileKey);
 
         // layers
-        this.backgroundLayer = this.map.createDynamicLayer('Background', this.tiles, 0, 0);
-        this.terrainLayer = this.map.createDynamicLayer('Terrain', this.tiles, 0, 0);
-        this.belowLayer = this.map.createDynamicLayer('Below Player', this.tiles, 0, 0);
-        this.worldLayer = this.map.createDynamicLayer('World', this.tiles, 0, 0);
-        this.doorsLayer = this.map.createDynamicLayer('Doors', this.tiles, 0, 0);
-        this.roomItemsLayer = this.map.createDynamicLayer('Room Items', this.tiles, 0, 0);
-        this.computerLayer = this.map.createDynamicLayer('ComputerBlinking', this.tiles, 0, 0);
-        this.plateauLayer = this.map.createDynamicLayer('Plateau', this.tiles, 0, 0);
-        this.roadblockLayer = this.map.createDynamicLayer('ROADBLOCK', this.tiles, 0, 0);
-        this.laddersLayer = this.map.createDynamicLayer('Ladders', this.tiles, 0, 0);
-        this.signsDecorLayer = this.map.createDynamicLayer('SignDeco', this.tiles, 0, 0);
-        this.aboveLayer = this.map.createDynamicLayer('Above Player', this.tiles, 0, 0);
+        const backgroundLayer = map.createDynamicLayer('Background', tiles, 0, 0);
+        const terrainLayer = map.createDynamicLayer('Terrain', tiles, 0, 0);
+        const belowLayer = map.createDynamicLayer('Below Player', tiles, 0, 0);
+        const worldLayer = map.createDynamicLayer('World', tiles, 0, 0);
+        const doorsLayer = map.createDynamicLayer('Doors', tiles, 0, 0);
+        const roomItemsLayer = map.createDynamicLayer('Room Items', tiles, 0, 0);
+        const computerLayer = map.createDynamicLayer('ComputerBlinking', tiles, 0, 0);
+        const roadblockLayer = map.createDynamicLayer('ROADBLOCK', tiles, 0, 0);
+        const laddersLayer = map.createDynamicLayer('Ladders', tiles, 0, 0);
+        const signsDecorLayer = map.createDynamicLayer('SignDeco', tiles, 0, 0);
+        let aboveLayer = map.createDynamicLayer('Above Player', tiles, 0, 0);
 
         // world physics
-        this.physics.world.bounds.width = this.map.widthInPixels;
-        this.physics.world.bounds.height = this.map.heightInPixels;
+        this.physics.world.bounds.width = map.widthInPixels;
+        this.physics.world.bounds.height = map.heightInPixels;
 
         // collisions based on layers
-        this.worldLayer.setCollisionByProperty({ collides: true });
-        
+        worldLayer.setCollisionByProperty({ collides: true });
         // set above layer higher than everything else on map
-        this.aboveLayer.setDepth(20);
+        aboveLayer.setDepth(20);
 
-
+        this.rooms = [];
+        this.portals = this.physics.add.group();
+        
         //-- LOOP THROUGH OBJECTS --
-        this.map.findObject('Objects', function(object) {
-            //spawn points
+        map.findObject('Objects', function(object) {
+            // spawn points
             if (object.type === "Spawn") {
                 if (object.name === "Player") {
                     this.player = new Player({
@@ -62,53 +72,76 @@ export default class GameScene extends Phaser.Scene {
                         scene: this,
                         x: object.x,
                         y: object.y
-                    }); 
-                                   
+                    });            
                 }
-
+                
                 //TODO create Friend.js
-            }
 
-            if (object.type === "Door"){
-                if (object.name === "Player House"){
-                    this.scene.launch('PlayerHouse');
-                }
-            }
+            } // end spawn points
 
-            //garbage
-                //garbage closed
-                //garbage open
-            //chests
-                //chest closed
-                //chest open
-            //items
-                //candy
-                // add more items
+            
+             //script for dialog creation
+            // if (object.name === "Script"){
+            //     let tmp = this.add.rectangle((object.x+(object.width/2)), (object.y+(object.height/2)), object.width, object.height);
+			// 		tmp.properties = object.properties.reduce(
+			// 			(obj, item) => Object.assign(obj, { [item.name]: item.value }), {}
+			// 		);
+            //         this.physics.world.enable(tmp, 1);
+			// 		this.physics.add.collider(this.player, tmp, this.HitScript, null, this);
+            // }
+
+
+            // garbage
+            //     garbage closed
+            //     garbage open
+            // chests
+            //     chest closed
+            //     chest open
+            // items
+            //     candy
+            //     add more items
+            
         }, this);
 
         // add collisions
-        this.physics.add.collider(this.player, this.worldLayer);
+        this.physics.add.collider(this.player, worldLayer);
+        // this.physics.add.collider(this.player, worldLayer, this.HitDoorLayer.bind(this));
         this.physics.add.collider(this.player, this.neighbor);
-        
+        this.physics.add.overlap(this.player, this.portals, this.enterDoor, null, this);
 
         // -- CAMERA SETTINGS & BOUNDS --
         //camera bounds
-        this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
-        //follow player
+        this.cameras.main.setBounds(0, 0, 3200, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
+
         //TODO FIX THIS: prevent tiles from bleeding
         this.cameras.main.roundPixels = true;
         //fade in
         this.cameras.main.fadeIn(2000, 0, 0, 0);
         
+        // DIALOG
+        // this.Dialog.setText('Hello World!');
+
         //! CREATE DEBUG
-        //this.debugCollisions();        
-    }
+        //this.debugCollisions(); 
+
+    } // end create
 
     //! ------------------------
     //! ----- UPDATE -----
     //! ------------------------
     update(time, delta) {
+        // Close the dialog on spacebar press
+		// if( this.Dialog.visible ){
+		// 	if( this.cursors.space.isDown ){
+		// 		this.Dialog.display(false);
+		// 	}
+		// 	return false;
+		// }        
+        this.player.update();
+
+        // this.cameras.main._ch = this.map.heightInPixels;
+        // this.cameras.main._cw = this.map.widthInPixels;
 
         
     }
@@ -121,115 +154,29 @@ export default class GameScene extends Phaser.Scene {
     //! DEBUG GRAPHICS
     debugCollisions(){
         const debugGraphics = this.add.graphics().setAlpha(0.75);
-        this.worldLayer.renderDebug(debugGraphics, {
+        worldLayer.renderDebug(debugGraphics, {
         tileColor: null, // Color of non-colliding tiles
         collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
         faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
         });
     }
-};
 
-// export class PlayerHouseScene extends GameScene {
-//     constructor() {
-//         super('PlayerHouse');
-//     }
+    enterPlayerHouse(player){
+        this.player.onDoor = true;
+        // this.scene.start('PlayerHouse');
+	}
 
-//     create () {
-//         //map of player house
-//         this.map = this.make.tilemap({ key: 'foreston' });
-//         //tiles used in map
-//         this.tiles = this.map.addTilesetImage('tiles');
+    /**  
+	 * Handle collisions with the script layer. Tiles which have a dialog response are given
+	 * a 'name' property with a value that corresponds to a key in the script object found
+	 * in script.js
+	 */
+    // HitScript(player, target){
+	// 	if(target.properties.name && !this.forestonDialog.visible){
+	// 		player.anims.stopAfterRepeat(1);
+	// 		this.Dialog.setText(this.script[player.name][target.properties.name]);
+	// 	}
+	// }
 
-//         //map layers
-//         this.backgroundLayer = this.map.createDynamicLayer('Background', this.tiles, 0, 0);
-//         this.terrainLayer = this.map.createDynamicLayer('Terrain', this.tiles, 0, 0);
-//         this.belowLayer = this.map.createDynamicLayer('Below Player', this.tiles, 0, 0);
-//         this.worldLayer = this.map.createDynamicLayer('World', this.tiles, 0, 0);
-//         this.roomItemsLayer = this.map.createDynamicLayer('Room Items', this.tiles, 0, 0);
-//         this.computerLayer = this.map.createDynamicLayer('ComputerBlinking', this.tiles, 0, 0);
-
-//         // set physics boundaries from map width and height
-//         this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
-
-//         //collision based on layer
-//         this.worldLayer.setCollisionByProperty({collides: true});
-
-
-//         //set up things in this level
-//         this.rooms = [];
-
-//         this.map.findObject('Objects', function(object) {
-//             //rooms
-//             if (object.type === "Room"){
-//                     this.rooms.push(object);
-//                 }
-            
-
-//             //spawn points
-//             if (object.type === "Spawn") {
-//                 if (object.name === "Player") {
-//                     this.player = new Player({
-//                         scene: this,
-//                         x: object.x,
-//                         y: object.y
-//                     });
-//                 }
-//             }
-            
-//             //items
-//         }, this);
-
-//         //add collisions
-//         this.physics.add.collider (this.player, this.wallsLayer);
-//         // this.physics.add.overlap(this.player, this.computer, function() {
-//         //     this.player.onComputer = true;
-//         // }, null, this);
-
-//         // -- CAMERA SETTINGS & BOUNDS --
-//         //start camera
-//         this.cameras.main.setZoom(2.0);
-//         // set room boundaries
-//         this.cameras.main.setBounds(this.rooms[this.player.currentRoom].x,
-//             this.rooms[this.player.currentRoom].y,
-//             this.rooms[this.player.currentRoom].width,
-//             this.rooms[this.player.currentRoom].height,
-//             true);
-        
-//         //follow player
-//         this.cameras.main.startFollow(this.player);
-
-//         //TODO FIX THIS: prevent tiles from bleeding
-//         this.cameras.main.roundPixels = true;
-        
-//         //camera fade
-//         this.cameras.main.fadeIn(2000, 0, 0, 0);
-
-
-//     }
-
-//     update(time, delta){
-//     //     this.cameras.main._ch = this.map.heightInPixels;
-//     //     this.cameras.main._cw = this.map.widthInPixels;
-
-//     //     // on player room change, stop player movement, fade camera, and set boundaries
-//     //     if(this.player.roomChange){
-//     //         this.cameras.main.fadeOut(250, 0, 0, 0, function(camera, progress){
-//     //             this.player.canMove = false;
-//     //             if (progress === 1) {
-//     //                 //change camera boundaries when fade out complete
-//     //                 this.cameras.main.setBounds(this.rooms[this.player.currentRoom].x,
-//     //                                             this.rooms[this.player.currentRoom].y,
-//     //                                             this.rooms[this.player.currentRoom].width,
-//     //                                             this.rooms[this.player.currentRoom].height, true);
-//     //                 //fade back in with new boundaries
-//     //                 this.cameras.main.fadeIn(500, 0, 0, 0, function(camera, progress) {
-//     //                     if (progress === 1) {
-//     //                         this.player.canMove = true;
-//     //                         // this.roomStart(this.player.currentRoom);
-//     //                     }
-//     //                 }, this);
-//     //             }
-//     //         }, this);
-//     //     }
-//     }
-// }
+    
+}
