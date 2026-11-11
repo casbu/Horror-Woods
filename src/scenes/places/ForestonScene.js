@@ -22,7 +22,7 @@ export default class ForestonScene extends GameScene {
     }
 
     preload(){
-        super.preload();
+        // TODO: Preload Foreston-specific assets here.
     }
 
     //! ------------------------
@@ -43,31 +43,6 @@ export default class ForestonScene extends GameScene {
                 tiledKey: 'tiles' //name of tiles in Tiled
         });
 
-        //-- LOOP THROUGH OBJECTS --
-        map.findObject('Objects', function(object) {
-            // spawn points
-            if (object.type === "Spawn") {
-                if (object.name === "Player") {
-                    this.player = new Player({
-                        scene: this,
-                        x: object.x,
-                        y: object.y
-                    });
-                }
-                
-                if (object.name === "Neighbor"){
-                    this.neighbor = new Neighbor({
-                        scene: this,
-                        x: object.x,
-                        y: object.y
-                    });            
-                }
-                
-                //TODO create Friend.js
-
-            } // end spawn points
-            
-        }, this);
         // //-- LOOP THROUGH OBJECTS --
         // map.findObject('Objects', function(object) {
         
