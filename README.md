@@ -117,29 +117,49 @@ This architecture provides a foundation for expanding the game without placing a
 - [ ] Improve scene transitions and gameplay feedback.
 - [ ] Test and debug existing systems.
 
-## Getting Started
+## Running the Game Locally
 
-**Prerequisites:** Node.js and npm
+Horror Woods currently uses a legacy development stack, including Phaser 3.20.1 and Webpack 4.
 
-Clone the repository and install dependencies:
+**Prerequisites: Node.js and npm**
+
+### Installation
+
+Clone the repository and install its dependencies:
 
 ```bash
 npm install
 ```
 
-Start the development server:
+### Start the Development Server
+
+On macOS or Linux, run:
 
 ```bash
-npm start
+NODE_OPTIONS=--openssl-legacy-provider npm start
 ```
 
-Create a production build:
+Then open:
 
-```bash
-npm run build
+http://localhost:8080/
+
+### Legacy Build Compatibility
+
+The project currently uses Webpack 4, which can encounter the following error on newer Node.js versions:
+
+```text
+ERR_OSSL_EVP_UNSUPPORTED
 ```
 
-**Development note:** The project uses an older Phaser 3/Webpack setup. Dependency compatibility and runtime behavior may require troubleshooting with modern Node.js versions.
+The `--openssl-legacy-provider` flag allows the development server to run using legacy OpenSSL algorithms.
+
+**Note:** This is a temporary development workaround. Updating the build dependencies and removing the compatibility flag are planned improvements.
+
+### Current Development Status
+
+The game is under active development. Scene initialization issues have been resolved, allowing the game to launch and enter Foreston.
+
+Some gameplay features, including initial Player visibility, enemy spawning, and interior scene transitions, remain unfinished.
 
 ## Current Limitations
 
