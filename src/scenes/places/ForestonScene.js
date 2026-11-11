@@ -6,9 +6,6 @@ export default class ForestonScene extends GameScene {
 
     constructor() {
         super('Foreston');
-
-        this.portals.PlayerHouse = "PlayerHouse";
-
     }
 
     init(data){

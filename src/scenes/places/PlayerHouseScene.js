@@ -6,7 +6,7 @@ export default class PlayerHouseScene extends GameScene {
     constructor() {
         super('PlayerHouse');
 
-        this.portals.ascend = 'Foreston';
+        // this.portals.ascend = 'Foreston';
         //this.portals.descend = 'PlayerHouse2';
     }
 
