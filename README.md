@@ -1,7 +1,6 @@
 # Horror Woods 2.0
 
-**A top-down, horror-themed RPG prototype built with JavaScript and Phaser 3.
-**
+**A top-down, horror-themed RPG prototype built with JavaScript and Phaser 3.**
 
 **Status**: Work in Progress | Experimental Game Development
 
