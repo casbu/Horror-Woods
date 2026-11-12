@@ -5,6 +5,7 @@ export default class Player extends Entity {
 
     constructor(config) {
         super(config);
+        this.setTexture('player', 0);
         this.body.setVelocity(0, 0).setBounce(0.2).setCollideWorldBounds(true).setSize(31,45).setOffset(15,17);
         this.body.onWorldBounds = true;
 
