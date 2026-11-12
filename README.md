@@ -11,8 +11,6 @@ Set in the mysterious town of Foreston, the game follows a young protagonist nav
 
 The project combines exploratory game development with original worldbuilding, character concepts, and systems planning. It serves as a hands-on environment for developing JavaScript programming skills, game architecture, interactive environments, and gameplay mechanics.
 
-This is an unfinished prototype, not a complete or production-ready game.
-
 **This is an unfinished prototype, not a complete or production-ready game.**
 
 ## Technologies
